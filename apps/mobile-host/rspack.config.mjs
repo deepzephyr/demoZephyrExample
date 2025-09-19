@@ -10,6 +10,11 @@ const __dirname = path.dirname(__filename);
 
 const USE_ZEPHYR = Boolean(process.env.ZC);
 
+//  MobileCart: `MobileCart@https://t-android-developinit-deepti-kalra-mobilecart-demozep-742751-ze.zephyrcloud.app//MobileCart.container.js.bundle`,
+//           MobileInventory: `MobileInventory@http://localhost:9001/${platform}/MobileInventory.container.js.bundle`,
+//           MobileCheckout: `MobileCheckout@http://localhost:9002/${platform}/MobileCheckout.container.js.bundle`,
+//           MobileOrders: `MobileOrders@http://localhost:9003/${platform}/MobileOrders.container.js.bundle`,
+
 /**
  * More documentation, installation, usage, motivation and differences with Metro is available at:
  * https://github.com/callstack/repack/blob/main/README.md
@@ -49,10 +54,10 @@ const config = env => {
         name: 'MobileHost',
         dts: false,
         remotes: {
-          MobileCart: `MobileCart@http://localhost:9000/${platform}/MobileCart.container.js.bundle`,
-          MobileInventory: `MobileInventory@http://localhost:9001/${platform}/MobileInventory.container.js.bundle`,
-          MobileCheckout: `MobileCheckout@http://localhost:9002/${platform}/MobileCheckout.container.js.bundle`,
-          MobileOrders: `MobileOrders@http://localhost:9003/${platform}/MobileOrders.container.js.bundle`,
+          MobileCart: `MobileCart@https://deepti-kalra-8-mobilecart-demozephyrexample-deepz-60e3c9c1a-ze.zephyrcloud.app/MobileCart.container.js.bundle`,
+          MobileInventory: `MobileInventory@https://deepti-kalra-10-mobileinventory-demozephyrexample-ab5f27f0c-ze.zephyrcloud.app/MobileInventory.container.js.bundle`,
+          MobileCheckout: `MobileCheckout@https://deepti-kalra-6-mobilecheckout-demozephyrexample-d-bba36cfb7-ze.zephyrcloud.app/MobileCheckout.container.js.bundle`,
+          MobileOrders: `MobileOrders@https://deepti-kalra-11-mobileorders-demozephyrexample-de-2e90186d3-ze.zephyrcloud.app/MobileOrders.container.js.bundle`,
         },
         shared: getSharedDependencies({eager: true}),
       }),

@@ -9,7 +9,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const STANDALONE = Boolean(process.env.STANDALONE);
-const USE_ZEPHYR = Boolean(process.env.ZC);
+//const USE_ZEPHYR = Boolean(process.env.ZC);
+const USE_ZEPHYR = 1;
 
 /**
  * More documentation, installation, usage, motivation and differences with Metro is available at:
@@ -42,6 +43,12 @@ const config = env => {
     output: {
       uniqueName: 'mobile-checkout',
     },
+    optimization: {
+  splitChunks: false,
+},
+experiments: {
+  lazyCompilation: false,
+},
     module: {
       rules: [
         ...Repack.getJsTransformRules(),

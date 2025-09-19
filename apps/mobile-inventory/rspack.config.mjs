@@ -9,7 +9,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const STANDALONE = Boolean(process.env.STANDALONE);
-const USE_ZEPHYR = Boolean(process.env.ZC);
+//const USE_ZEPHYR = Boolean(process.env.ZC);
+const USE_ZEPHYR = 1;
 
 /**
  * More documentation, installation, usage, motivation and differences with Metro is available at:
@@ -28,7 +29,7 @@ const USE_ZEPHYR = Boolean(process.env.ZC);
  */
 const config = env => {
   const {mode, platform} = env;
-
+// MobileCart: `MobileCart@http://localhost:9000/${platform}/MobileCart.container.js.bundle`,
   return {
     mode,
     context: __dirname,
@@ -40,6 +41,12 @@ const config = env => {
     output: {
       uniqueName: 'mobile-inventory',
     },
+    optimization: {
+  splitChunks: false,
+},
+experiments: {
+  lazyCompilation: false,
+},
     module: {
       rules: [
         ...Repack.getJsTransformRules(),
@@ -53,7 +60,7 @@ const config = env => {
         filename: 'MobileInventory.container.js.bundle',
         dts: false,
         remotes: {
-          MobileCart: `MobileCart@http://localhost:9000/${platform}/MobileCart.container.js.bundle`,
+          MobileCart: `MobileCart@https://deepti-kalra-8-mobilecart-demozephyrexample-deepz-60e3c9c1a-ze.zephyrcloud.app/MobileCart.container.js.bundle`,
         },
         exposes: STANDALONE
           ? undefined
