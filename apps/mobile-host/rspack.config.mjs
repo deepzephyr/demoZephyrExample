@@ -55,7 +55,7 @@ const config = env => {
         dts: false,
         remotes: {
           MobileCart: `MobileCart@https://deepti-kalra-8-mobilecart-demozephyrexample-deepz-60e3c9c1a-ze.zephyrcloud.app/MobileCart.container.js.bundle`,
-          MobileInventory: `MobileInventory@https://deepti-kalra-10-mobileinventory-demozephyrexample-ab5f27f0c-ze.zephyrcloud.app/MobileInventory.container.js.bundle`,
+          MobileInventory: `MobileInventory@https://deepti-kalra-46-mobileinventory-demozephyrexample-b94b95437-ze.zephyrcloud.app/MobileInventory.container.js.bundle`,
           MobileCheckout: `MobileCheckout@https://deepti-kalra-6-mobilecheckout-demozephyrexample-d-bba36cfb7-ze.zephyrcloud.app/MobileCheckout.container.js.bundle`,
           MobileOrders: `MobileOrders@https://deepti-kalra-11-mobileorders-demozephyrexample-de-2e90186d3-ze.zephyrcloud.app/MobileOrders.container.js.bundle`,
         },
