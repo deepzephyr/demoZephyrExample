@@ -4,6 +4,7 @@ import {LoadingScreen, useAuthStore} from 'mobile-core';
 
 import ErrorBoundary from '../components/ErrorBoundary';
 import {CheckoutSuccessNavigationProps} from '../navigation/types';
+import { StyleSheet, Text, View } from 'react-native';
 
 const CheckoutSuccessScreen = React.lazy(() => {
   // @ts-ignore federated dts not enabled yet
@@ -24,14 +25,36 @@ const LazyLoadedCheckoutSuccessScreen = ({navigation}: Props) => {
       navigation.jumpTo('Home');
     }
   };
+return (
+     <ErrorBoundary name="CheckoutSuccessScreen">
+      <View style={styles.wrapper}>
+        {/* Badge shown above everything */}
+        <View style={styles.badge}>
+          <Text style={styles.badgeText}>Remote 3</Text>
+        </View>
 
-  return (
-    <ErrorBoundary name="CheckoutSuccessScreen">
-      <React.Suspense fallback={<LoadingScreen />}>
-        <CheckoutSuccessScreen onDismiss={handleDismiss} />
-      </React.Suspense>
+       <React.Suspense fallback={<LoadingScreen />}>
+          <CheckoutSuccessScreen onDismiss={handleDismiss} />
+        </React.Suspense>
+      </View>
     </ErrorBoundary>
+  
   );
+  
 };
+const styles = StyleSheet.create({
+  wrapper: {flex: 1},
+  badge: {
+    position: 'absolute',
+    top: 8,
+    right: 10,
+    backgroundColor: '#FFFF00',
+    paddingHorizontal: 12,
+    paddingVertical: 12,
+    borderRadius: 6,
+    zIndex: 999, // keeps it above the remote screen
+  },
+  badgeText: {color: '#ff5722', fontWeight: 'bold', fontSize: 24},
+});
 
 export default LazyLoadedCheckoutSuccessScreen;

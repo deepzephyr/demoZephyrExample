@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 
 import {
   useAuthStore,
@@ -30,6 +30,11 @@ const TabsNavigator = () => {
   const {t} = useTranslation('host');
 
   return (
+    <View style={{flex: 1}}>
+    {/* Overlay badge */}
+    <View style={styles.hostBadge}>
+      <Text style={styles.hostText}>Host</Text>
+    </View>
     <Tabs.Navigator
       activeColor={theme.colors.primary}
       inactiveColor={theme.colors.primary}
@@ -81,10 +86,29 @@ const TabsNavigator = () => {
         }}
       />
     </Tabs.Navigator>
+    </View>
   );
 };
-
 const styles = StyleSheet.create({
+  hostBadge: {
+    position: 'absolute',
+    bottom: 15,
+    left: 100,
+    backgroundColor: '#FFFF00',
+    justifyContent:"center",
+    alignItems:"center",
+    borderRadius: 6,
+    zIndex: 999,
+    width:"40%",
+    height:30,
+    elevation: 5, // for Android
+  },
+  hostText: {
+    color: "red",
+    fontWeight: 'bold',
+    fontSize: 14,
+    textAlign:"center"
+  },
   activeIndicator: {
     position: 'absolute',
     bottom: -30,
@@ -92,5 +116,6 @@ const styles = StyleSheet.create({
     borderRadius: 0,
   },
 });
+
 
 export default TabsNavigator;
